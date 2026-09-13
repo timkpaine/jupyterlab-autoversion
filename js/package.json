@@ -32,7 +32,7 @@
   "scripts": {
     "build:babel": "babel src/ --source-maps --out-dir lib/",
     "build:extension": "mkdirp ../jupyterlab_autoversion/extension/ && cpy --flat 'src/extension/*' '../jupyterlab_autoversion/extension/'",
-    "build:labextension": "rimraf ../jupyterlab_autoversion/labextension && jupyter-builder build  build .",
+    "build:labextension": "rimraf ../jupyterlab_autoversion/labextension && jupyter-builder build .",
     "build": "pnpm clean && pnpm build:babel && pnpm build:extension && pnpm build:labextension",
     "clean": "rimraf lib",
     "fix": "oxlint --fix src/ tests/ && oxfmt --write \"src/**/*.js\" \"tests/**/*.js\"",
