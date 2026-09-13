@@ -32,14 +32,8 @@
   "scripts": {
     "build:babel": "babel src/ --source-maps --out-dir lib/",
     "build:extension": "mkdirp ../jupyterlab_autoversion/extension/ && cpy --flat 'src/extension/*' '../jupyterlab_autoversion/extension/'",
-<<<<<<< before updating
-    "build:labextension": "rimraf ../jupyterlab_autoversion/labextension && jupyter labextension build .",
+    "build:labextension": "rimraf ../jupyterlab_autoversion/labextension && jupyter-builder build  build .",
     "build": "pnpm clean && pnpm build:babel && pnpm build:extension && pnpm build:labextension",
-=======
-    "build:nbextension": "mkdirp ../jupyterlab_autoversion/nbextension/static/ && cpy --flat 'src/notebook.js' '../jupyterlab_autoversion/nbextension/static/'",
-    "build:labextension": "rimraf ../jupyterlab_autoversion/labextension && jupyter-builder build .",
-    "build": "pnpm clean && pnpm build:babel && pnpm build:extension && pnpm build:labextension && pnpm build:nbextension",
->>>>>>> after updating
     "clean": "rimraf lib",
     "fix": "oxlint --fix src/ tests/ && oxfmt --write \"src/**/*.js\" \"tests/**/*.js\"",
     "lint": "oxlint src/ tests/ && oxfmt --check \"src/**/*.js\" \"tests/**/*.js\"",
