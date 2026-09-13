@@ -2,11 +2,7 @@
 requires = [
     "hatchling",
     "hatch-js",
-<<<<<<< before updating
-    "jupyterlab>=4.6.0,<5",
-=======
     "jupyter-builder>=1.2.3,<2",
->>>>>>> after updating
 ]
 build-backend = "hatchling.build"
 
