@@ -31,7 +31,7 @@ class TestExtension:
             h = GitGetHandler(app, m, repo=repo)
             h._transforms = []
             h.current_user = h._jupyter_current_user = "blerg"
-            h.get_argument = get_argument
+            h.get_argument = MagicMock(side_effect=get_argument)
             h.get()
 
             def get_argument(name, default):
@@ -43,7 +43,7 @@ class TestExtension:
             h = GitGetHandler(app, m, repo=repo)
             h.current_user = h._jupyter_current_user = "blerg"
             h._transforms = []
-            h.get_argument = get_argument
+            h.get_argument = MagicMock(side_effect=get_argument)
             h.get()
 
             def get_argument(name, default):
@@ -55,7 +55,7 @@ class TestExtension:
             h = GitGetHandler(app, m, repo=repo)
             h.current_user = h._jupyter_current_user = "blerg"
             h._transforms = []
-            h.get_argument = get_argument
+            h.get_argument = MagicMock(side_effect=get_argument)
             h.get()
 
     def test_git_restore(self):
@@ -80,7 +80,7 @@ class TestExtension:
             h = GitRestoreHandler(app, m, repo=repo)
             h.current_user = h._jupyter_current_user = "blerg"
             h._transforms = []
-            h.get_argument = get_argument
+            h.get_argument = MagicMock(side_effect=get_argument)
             h.get()
 
             def get_argument(name, default):
@@ -94,7 +94,7 @@ class TestExtension:
             h = GitRestoreHandler(app, m, repo=repo)
             h.current_user = h._jupyter_current_user = "blerg"
             h._transforms = []
-            h.get_argument = get_argument
+            h.get_argument = MagicMock(side_effect=get_argument)
             h.get()
 
             def get_argument(name, default):
@@ -108,5 +108,5 @@ class TestExtension:
             h = GitRestoreHandler(app, m, repo=repo)
             h.current_user = h._jupyter_current_user = "blerg"
             h._transforms = []
-            h.get_argument = get_argument
+            h.get_argument = MagicMock(side_effect=get_argument)
             h.get()

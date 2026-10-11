@@ -17,12 +17,10 @@ def load_jupyter_server_extension(nb_server_app):
     if backend not in ("git", "s3", "sql"):
         raise ValueError(f"jupyterlab_autoversion backend not recognized: {backend}")
 
-    if backend == "s3":
-        from .storage.s3 import initialize
-    elif backend == "sql":
-        from .storage.sql import initialize
-    else:
-        from .storage.git import initialize
+    if backend != "git":
+        raise NotImplementedError(f"jupyterlab_autoversion backend is not implemented: {backend}")
+
+    from .storage.git import initialize
 
     hook, handlers = initialize(nb_server_app)
 

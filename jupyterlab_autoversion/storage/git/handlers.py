@@ -9,8 +9,8 @@ from jupyter_server.base.handlers import JupyterHandler
 
 
 class GitGetHandler(JupyterHandler):
-    def initialize(self, repo):
-        self.repo = repo
+    def initialize(self, **kwargs):
+        self.repo = kwargs["repo"]
 
     @tornado.web.authenticated
     def get(self):
@@ -37,14 +37,14 @@ class GitGetHandler(JupyterHandler):
 
 
 class GitRestoreHandler(JupyterHandler):
-    def initialize(self, repo):
-        self.repo = repo
+    def initialize(self, **kwargs):
+        self.repo = kwargs["repo"]
 
     @tornado.web.authenticated
     def get(self):
         path = self.get_argument("path", "")
         id = self.get_argument("id", "")
-        version = int(self.get_argument("version", 0))
+        version = int(self.get_argument("version", "0"))
 
         if not id and not path:
             self.finish({"id": "", "version": -1, "contents": {}})
